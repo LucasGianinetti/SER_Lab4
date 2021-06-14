@@ -215,18 +215,7 @@
 		<!-- NB : La sources d'images utilisées provient de :  https://github.com/fanzeyi/pokemon.json    -->
 		<img width="100%">
 			<xsl:attribute name="src">
-				<xsl:choose>
-					<xsl:when test=". &lt; 10">
-						<xsl:value-of select="concat('images/00',.,'.png')"/>
-					</xsl:when>
-					<xsl:when test=". &lt; 100">
-						<xsl:value-of select="concat('images/0',.,'.png')"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of select="concat('images/',.,'.png')"/>
-					</xsl:otherwise>
-
-				</xsl:choose>
+				<xsl:value-of select="concat('images/', format-number(., '000'), '.png')"/>
 			</xsl:attribute>
 		</img>
 
